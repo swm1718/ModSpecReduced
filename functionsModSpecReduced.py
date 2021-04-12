@@ -220,7 +220,7 @@ def generateStage2FFT(frameSize, modFrameSize, modWindowSize, nModFrames, p, fft
     elif form == "mfcc":
         q = nMFCCs
     else:
-        q = round(1/(2*frameSize)+1) # After applying Nyquist
+        q = round(modWindowSize/(2*frameSize)+1) # After applying Nyquist
     fft2matrix = np.zeros((nModFrames, p, q)) if form != "complex" else np.zeros((nModFrames, p, q), dtype=np.complex_)
     logfft2matrix = np.zeros((nModFrames, p, q))
 
